@@ -13,7 +13,7 @@ if not getgenv().AimbotSettings then
 		MaximumDistance = 300, -- Set this to something lower if you dont wanna lock on some random person across the map
 		AlwaysActive = false,
 		Aimbot = {
-			Enabled = true,
+			Enabled = false,
 			TargetPart = "Head",
 			Use_mousemoverel = true,
 			Strength = 100, -- 1% - 200%
@@ -32,7 +32,7 @@ if not getgenv().AimbotSettings then
 			RequireMovement = true
 		},
 		FovCircle = {
-			Enabled = true,
+			Enabled = false,
 			Dynamic = true,
 			Radius = 100,
 			Transparency = 1,
@@ -159,11 +159,6 @@ if (GameId == gids.pf) or (GameId == gids.pft) or (GameId == gids.pfu) then
 	local require = rawget(getrenv().shared, "require")
 	if require == nil then
 		setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Spoorloos/scripts/main/pf-actor-bypass.lua"))()')
-		Fluent:Notify({
-                Title = "DevilHub",
-                Content = "A script has been copied to your clipboard. Please put this script in your exploit's autoexec folder and rejoin the game. (This script is required to bypass the new update.)",
-                Duration = 10
-                })
 		return
 	end
 	local _cache = rawget(debug.getupvalue(require, 1), "_cache")
