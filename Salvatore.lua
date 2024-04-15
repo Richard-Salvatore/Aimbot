@@ -13,7 +13,7 @@ if not getgenv().AimbotSettings then
 		MaximumDistance = 300, -- Set this to something lower if you dont wanna lock on some random person across the map
 		AlwaysActive = false,
 		Aimbot = {
-			Enabled = false,
+			Enabled = true,
 			TargetPart = "Head",
 			Use_mousemoverel = true,
 			Strength = 100, -- 1% - 200%
@@ -32,7 +32,7 @@ if not getgenv().AimbotSettings then
 			RequireMovement = true
 		},
 		FovCircle = {
-			Enabled = false,
+			Enabled = true,
 			Dynamic = true,
 			Radius = 100,
 			Transparency = 1,
@@ -159,6 +159,8 @@ if (GameId == gids.pf) or (GameId == gids.pft) or (GameId == gids.pfu) then
 	local require = rawget(getrenv().shared, "require")
 	if require == nil then
 		setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Spoorloos/scripts/main/pf-actor-bypass.lua"))()')
+		local a = Instance.new("Message", game.CoreGui)
+		a.Text = "-- Universal Aimbot Notice --\n\nA script has been copied to your clipboard.\nPlease put this script in your exploit's autoexec folder and rejoin the game.\n(this script is required to bypass the new update)\n\nbypass was created by Spoorloos"
 		return
 	end
 	local _cache = rawget(debug.getupvalue(require, 1), "_cache")
@@ -174,6 +176,7 @@ elseif GameId == gids.bb then
 	end
 elseif GameId == gids.rp then
 	rp = true
+	-- CREDIT TO THIS DUDE FOR CRASH FIX https://v3rmillion.net/showthread.php?pid=8248169#pid8248169
 	--loadstring(game:HttpGet("https://raw.githubusercontent.com/Github-Account-39021832/Rush-Point-Fix-Crash/main/src.lua"))()
 end
 
@@ -474,7 +477,7 @@ end)
 fov = Drawingnew("Circle")
 fov.Visible = true
 fov.Transparency = 1
-fov.Color = fromRGB(128, 128, 128)
+fov.Color = fromRGB(255,255,255)
 fov.Thickness = 1
 fov.NumSides = 64
 fov.Radius = 100
@@ -497,16 +500,16 @@ do
 	for _,v in next, {label1,label2} do
 		v.Visible = false
 		v.Transparency = 1
-		v.Size = 0 
+		v.Size = 32 
 		v.Center = true 
 		v.Outline = true 
 		v.OutlineColor = fromRGB(0,0,0)
 		v.Font = Fonts.UI
 	end
-	label1.Color = fromRGB(128, 128, 128)
-	label1.Text = "Aim Assist only works when the player is outside the red circle and inside the blue circle"
-	label2.Color = fromRGB(128, 128, 128)
-	label2.Text = "You cannot use aimbot and aim assist at the same time."
+	label1.Color = fromRGB(255,255,255)
+	label1.Text = "Aim Assist only works when the player is outside the Red circle and inside the Blue circle"
+	label2.Color = fromRGB(255,0,0)
+	label2.Text = "You cannot use Aimbot and Aim Assist at the same time!"
 end
 function removefov()
 	fov:Remove()
