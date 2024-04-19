@@ -497,9 +497,9 @@ do
 		v.Font = Fonts.UI
 	end
 	label1.Color = fromRGB(128, 128, 128)
-	label1.Text = "Aim Assist only works when the player is outside the red circle and inside the blue circle."
+	label1.Text = ""
 	label2.Color = fromRGB(128, 128, 128)
-	label2.Text = "You cannot use aimbot and aim assist at the same time."
+	label2.Text = ""
 end
 function removefov()
 	fov:Remove()
