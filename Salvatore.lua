@@ -1,4 +1,5 @@
 
+
 local VERSION = "v1.1.20"
 
 if not getgenv().AimbotSettings then
@@ -62,7 +63,7 @@ if not getgenv().AimbotSettings then
 		},
 		Priority = {},
 		Whitelisted = {}, -- Username or User ID
-		WhitelistFriends = true, -- Automatically adds friends to the whitelist
+		WhitelistFriends = false, -- Automatically adds friends to the whitelist
 		Ignore = {} -- Raycast Ignore
 	}
 end
@@ -72,6 +73,13 @@ if not AimbotSettings.IgnoredTransparency then
 	bind.OnInvoke = function()
 		setclipboard("https://pastebin.com/raw/nwqE7v07")
 	end
+	game:GetService("StarterGui"):SetCore("SendNotification",{
+		Title = "Universal Aimbot",
+		Text = "Please update your script!",
+		Duration = 5,
+		Button1 = "Get Latest Script",
+		Callback = bind
+	})
 	return
 end
 
@@ -152,6 +160,8 @@ if (GameId == gids.pf) or (GameId == gids.pft) or (GameId == gids.pfu) then
 	local require = rawget(getrenv().shared, "require")
 	if require == nil then
 		setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Spoorloos/scripts/main/pf-actor-bypass.lua"))()')
+		local a = Instance.new("Message", game.CoreGui)
+		a.Text = "-- Universal Aimbot Notice --\n\nA script has been copied to your clipboard.\nPlease put this script in your exploit's autoexec folder and rejoin the game.\n(this script is required to bypass the new update.)"
 		return
 	end
 	local _cache = rawget(debug.getupvalue(require, 1), "_cache")
@@ -167,6 +177,7 @@ elseif GameId == gids.bb then
 	end
 elseif GameId == gids.rp then
 	rp = true
+	-- CREDIT TO THIS DUDE FOR CRASH FIX https://v3rmillion.net/showthread.php?pid=8248169#pid8248169
 	--loadstring(game:HttpGet("https://raw.githubusercontent.com/Github-Account-39021832/Rush-Point-Fix-Crash/main/src.lua"))()
 end
 
@@ -467,7 +478,7 @@ end)
 fov = Drawingnew("Circle")
 fov.Visible = true
 fov.Transparency = 1
-fov.Color = fromRGB(128, 128, 128)
+fov.Color = fromRGB(255,255,255)
 fov.Thickness = 1
 fov.NumSides = 64
 fov.Radius = 100
@@ -490,15 +501,15 @@ do
 	for _,v in next, {label1,label2} do
 		v.Visible = false
 		v.Transparency = 1
-		v.Size = 0 
+		v.Size = 32 
 		v.Center = true 
 		v.Outline = true 
 		v.OutlineColor = fromRGB(0,0,0)
 		v.Font = Fonts.UI
 	end
-	label1.Color = fromRGB(128, 128, 128)
+	label1.Color = fromRGB(255,255,255)
 	label1.Text = ""
-	label2.Color = fromRGB(128, 128, 128)
+	label2.Color = fromRGB(255,0,0)
 	label2.Text = ""
 end
 function removefov()
